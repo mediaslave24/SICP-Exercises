@@ -26,6 +26,11 @@
                     (left-branch set)
                     (adjoin-set x (right-branch set)))]))
 
+(define (append a b)
+  (if (null? a)
+    b
+    (cons (car a) (append (cdr a) b))))
+
 (define (tree->list-1 tree)
   (if (null? tree)
     '()
@@ -42,11 +47,6 @@
                           (copy-to-list (right-branch tree)
                                         result-list)))))
   (copy-to-list tree '()))
-
-(define (append a b)
-  (if (null? a)
-    b
-    (cons (car a) (append (cdr a) b))))
 
 ; a. Both procedures produce same result for figure 2.16
 ; b. Same order of growth
