@@ -91,7 +91,10 @@
           [else (let [(left (car leafs))
                       (right (cadr leafs))
                       (other (cddr leafs))]
-                  (successive-merge (cons (make-code-tree left right) other)))]))
+                  (successive-merge (if [< (weight left)
+                                           (weight right)]
+                                      (cons (make-code-tree left right) other)
+                                      (cons (make-code-tree right left) other))))]))
 
   (successive-merge (make-leaf-set pairs)))
 
