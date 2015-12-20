@@ -122,6 +122,3 @@
 (length bits)
 (display "Number of bits for fixed-length encoding: ")
 (* (length msg) 3)
-
-; 85 bits required for encoding
-; 
